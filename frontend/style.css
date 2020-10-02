@@ -1,4 +1,80 @@
 
+/* Boilerplate/Overrides */
+
+* {
+    box-sizing: border-box;
+    line-height: 1em;
+}
+
+html {
+    font-size: 2vh;
+}
+
+body {
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
 h1 {
     text-align: center;
+}
+
+/* Elements */
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 3rem;
+    background-color: #d94636;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+}
+
+nav a {
+    height: 3rem;
+    padding: 0.9rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    font-family: Helvetica;
+}
+
+/* Tabs/Transitions */
+
+#dashboardtab, #supporttab, #breakdowntab {
+    width: 0%;
+    height: 100%;
+    transition: width 0.5s ease;
+    overflow: hidden;
+}
+
+.dashboard #dashboardtab, .support #supporttab, .breakdown #breakdowntab {
+    width: 100%;
+}
+
+/* Tab content */
+
+#dashboard, #breakdown, #support {
+    width: 100vw;
+    height: 100%;
+}
+
+/* Dashboard */
+
+#dashboard canvas {
+    width: 100%;
+    height: 50%;
+    border-bottom: 2px solid #d94636;
+}
+
+#dashboard .info {
+    width: 100%;
+    height: 50%;
 }
