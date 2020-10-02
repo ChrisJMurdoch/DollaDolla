@@ -78,12 +78,13 @@ function render() {
 
     // Current marker
 
-    ctx.strokeStyle = "#000000";
+    ctx.strokeStyle = "#FF5500";
+    ctx.lineWidth = 25;
 
     ctx.beginPath();
 
-    ctx.moveTo(70*w, 0*h);
-    ctx.lineTo(70*w, 100*h);
+    ctx.moveTo(70*w, 50*h);
+    ctx.lineTo(70*w, 50*h);
     
     ctx.stroke();
 

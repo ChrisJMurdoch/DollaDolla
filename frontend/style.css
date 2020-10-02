@@ -71,7 +71,6 @@ nav a {
 #dashboard canvas {
     width: 100%;
     height: 50%;
-    border-bottom: 2px solid #d94636;
 }
 
 #dashboard .info {
