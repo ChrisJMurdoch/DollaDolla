@@ -50,12 +50,13 @@ function render() {
 
     ctx.transform(1, 0, 0, -1, 0, canvas.height);
     ctx.lineCap = 'round';
-
+    ctx.shadowBlur = 10;
     ctx.lineWidth = 3;
     
     // Projected line
     
     ctx.strokeStyle = "rgba(255,255,255,0.3)";
+    ctx.shadowColor = "rgba(255,255,255,0.3)";
 
     ctx.beginPath();
     ctx.moveTo( unitX(1),  unitY(1)  );
@@ -65,6 +66,7 @@ function render() {
     // Real line
 
     ctx.strokeStyle = "white";
+    ctx.shadowColor = "rgba(255,255,255,0.75)";
 
     ctx.beginPath();
     ctx.moveTo( unitX(1),  unitY(1)  );
@@ -80,6 +82,7 @@ function render() {
     // Current marker
 
     ctx.strokeStyle = "white";
+    ctx.shadowColor = "rgba(255,255,255,0.75)";
     ctx.lineWidth = 5;
 
     ctx.beginPath();
