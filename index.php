@@ -32,7 +32,7 @@
 
         <div id="dashboardtab">
             <div id="dashboard">
-                <canvas></canvas>
+                <canvas id="canvas"></canvas>
                 <div class="info">
                     <h1>Graph info here!</h1>
                 </div>
