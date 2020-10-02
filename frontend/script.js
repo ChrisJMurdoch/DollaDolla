@@ -46,15 +46,26 @@ function render() {
     ctx.transform(1, 0, 0, -1, 0, canvas.height);
 
     ctx.lineCap = 'round';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3;
     
-    // Real line
-
-    ctx.strokeStyle = "#FF0000";
+    // Projected line
+    
+    ctx.strokeStyle = "#c4c4c4";
 
     ctx.beginPath();
 
-    ctx.moveTo(0*w, 0*h);
+    ctx.moveTo(1*w, 1*h);
+    ctx.lineTo(99*w, 90*h);
+    
+    ctx.stroke();
+
+    // Real line
+
+    ctx.strokeStyle = "white";
+
+    ctx.beginPath();
+
+    ctx.moveTo(1*w, 1*h);
     ctx.lineTo(10*w, 10*h);
     ctx.lineTo(20*w, 30*h);
     ctx.lineTo(30*w, 20*h);
@@ -65,21 +76,10 @@ function render() {
 
     ctx.stroke();
 
-    // Projected line
-    
-    ctx.strokeStyle = "#0000FF";
-
-    ctx.beginPath();
-
-    ctx.moveTo(0*w, 0*h);
-    ctx.lineTo(100*w, 90*h);
-    
-    ctx.stroke();
-
     // Current marker
 
-    ctx.strokeStyle = "#FF5500";
-    ctx.lineWidth = 25;
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = 10;
 
     ctx.beginPath();
 

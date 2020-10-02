@@ -34,7 +34,10 @@
             <div id="dashboard">
                 <canvas id="canvas"></canvas>
                 <div class="info">
-                    <h1>Graph info here!</h1>
+                    <div class="insight header">THIS MONTH</div>
+                    <div class="insight">TESCO: £207.34</div>
+                    <div class="insight">AMAZON: £102.23</div>
+                    <div class="insight">DELIVEROO: £40.98</div>
                 </div>
             </div>
         </div>
