@@ -22,6 +22,11 @@
 
 <body>
 
+    <div class="splash">
+        <h1>MULA</h1>
+        <h2>LOADING...</h2>
+    </div>
+
     <nav>
         <a href="javascript:switchPage('DASHBOARD');">DASHBOARD</a>
         <a href="javascript:switchPage('BREAKDOWN');">BREAKDOWN</a>

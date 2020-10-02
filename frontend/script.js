@@ -2,9 +2,13 @@
 let main;
 
 document.addEventListener("DOMContentLoaded", function(event) {
+
     main = document.getElementsByTagName("main")[0];
 
     render();
+
+    // Fake loading until API is implemented
+    setTimeout( function() {document.getElementsByClassName("splash")[0].classList.add("hidden");}, 1000 );
 });
 
 function switchPage(page) {
@@ -41,22 +45,21 @@ function render() {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
 
-    const w = canvas.width/100, h = canvas.height/100;
+    const unitX = x => Math.round(x*canvas.width/100);
+    const unitY = y => Math.round(y*canvas.height/100);
 
     ctx.transform(1, 0, 0, -1, 0, canvas.height);
-
     ctx.lineCap = 'round';
+
     ctx.lineWidth = 3;
     
     // Projected line
     
-    ctx.strokeStyle = "#c4c4c4";
+    ctx.strokeStyle = "rgba(255,255,255,0.3)";
 
     ctx.beginPath();
-
-    ctx.moveTo(1*w, 1*h);
-    ctx.lineTo(99*w, 90*h);
-    
+    ctx.moveTo( unitX(1),  unitY(1)  );
+    ctx.lineTo( unitX(99), unitY(90) );
     ctx.stroke();
 
     // Real line
@@ -64,28 +67,25 @@ function render() {
     ctx.strokeStyle = "white";
 
     ctx.beginPath();
-
-    ctx.moveTo(1*w, 1*h);
-    ctx.lineTo(10*w, 10*h);
-    ctx.lineTo(20*w, 30*h);
-    ctx.lineTo(30*w, 20*h);
-    ctx.lineTo(40*w, 40*h);
-    ctx.lineTo(50*w, 40*h);
-    ctx.lineTo(60*w, 60*h);
-    ctx.lineTo(70*w, 50*h);
-
+    ctx.moveTo( unitX(1),  unitY(1)  );
+    ctx.lineTo( unitX(10), unitY(10) );
+    ctx.lineTo( unitX(20), unitY(30) );
+    ctx.lineTo( unitX(30), unitY(20) );
+    ctx.lineTo( unitX(40), unitY(40) );
+    ctx.lineTo( unitX(50), unitY(40) );
+    ctx.lineTo( unitX(60), unitY(60) );
+    ctx.lineTo( unitX(70), unitY(50) );
     ctx.stroke();
 
     // Current marker
 
     ctx.strokeStyle = "white";
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 5;
 
     ctx.beginPath();
+    ctx.moveTo( unitX(70), unitY(50) );
+    ctx.lineTo( unitX(70), unitY(50) );
 
-    ctx.moveTo(70*w, 50*h);
-    ctx.lineTo(70*w, 50*h);
-    
     ctx.stroke();
 
 }

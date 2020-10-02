@@ -17,6 +17,7 @@ html {
         rgba(1,109,149,1) 64%,
         rgba(0,212,255,1) 100%
     );
+    font-family: Helvetica;
 }
 
 body {
@@ -52,7 +53,39 @@ nav a {
     font-size: 1.5rem;
     text-decoration: none;
     color: white;
-    font-family: Helvetica;
+}
+
+/* Splash screen */
+
+.splash {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 30vh;
+    z-index: 100;
+    background-color: white;
+    transition: all 0.5s ease;
+}
+.splash.hidden {
+    opacity: 0;
+}
+
+.splash h1, .splash h2 {
+    margin: 2% 0;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+
+    background: linear-gradient(
+        30deg,
+        rgba(2,0,36,1) 0%,
+        rgba(2,53,91,1) 29%,
+        rgba(1,109,149,1) 64%,
+        rgba(0,212,255,1) 100%
+    );color:white;
+}
+.splash h2 {
+    font-size: 2rem;
 }
 
 /* Tabs/Transitions */
