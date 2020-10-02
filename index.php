@@ -16,8 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Styles and scripts -->
-    <link rel="stylesheet" href="style.css">
-    <script type="application/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="frontend/style.css">
+    <script type="application/javascript" src="frontend/script.js"></script>
 </head>
 
 <body>
