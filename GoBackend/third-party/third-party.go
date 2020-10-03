@@ -1,6 +1,7 @@
 package third_party
 
 import (
+	"errors"
 	"fmt"
 	"github.com/gorilla/mux"
 	"io"
@@ -59,6 +60,10 @@ func (thirdP *IThirdParty) makeExternalAPICall(endPoint string, method string, t
 	log.Printf("Status: %d", res.StatusCode)
 	log.Printf("Body: %s\n", data)
 
+	if res.StatusCode != http.StatusOK {
+		return "", errors.New(string(data) )
+	}
+
 	return string(data), nil
 
 }
@@ -71,9 +76,9 @@ func (thirdP *IThirdParty) appendMethod(method string) {
 	thirdP.Method = method
 }
 
-func sendBadError(w http.ResponseWriter) {
+func sendBadError(w http.ResponseWriter, err error) {
 	w.WriteHeader(http.StatusBadRequest)
-	_, _ = w.Write([]byte(`{"message" : "Bad Request" }`))
+	_, _ = w.Write([]byte(err.Error()))
 }
 
 
@@ -96,7 +101,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		response, err := externalAPI.makeExternalAPICall("/login", r.Method, r.URL.Query().Get("token"))
 
 		if err != nil {
-			sendBadError(w)
+			sendBadError(w, err)
 		}
 
 		_, _ = w.Write([]byte(response))
@@ -116,7 +121,7 @@ func memberHandler(w http.ResponseWriter, r *http.Request) {
 	response , err := externalAPI.makeExternalAPICall("/member/" + action, r.Method, r.URL.Query().Get("token"))
 
 	if err != nil {
-		sendBadError(w)
+		sendBadError(w, err)
 		return
 	}
 	w.WriteHeader(http.StatusOK)

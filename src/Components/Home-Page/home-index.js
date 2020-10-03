@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import axios from "../../Axios";
+import axios, {LOCAL_SESSION_TOKEN} from "../../Axios";
+
 /* Someone working from the home page can work from here
 *
 * Strong urge to use Material UI components
@@ -26,13 +27,16 @@ class HomeIndex extends Component {
         * for example //// const ourContextData = res.data >> Have a look at the console for more info
         * More examples - https://www.digitalocean.com/community/tutorials/react-axios-react
         * */
-        axios.thirdPartyMemberAPI.getMemberAccounts("accounts", "KQdk16-SqubMbCnfIBS0YVwMyTX1Kn_xPYkvg-mCoHA")
+        axios.thirdPartyMemberAPI.login("true")
             .then(res => {
-                console.log(res);
-                console.log(res.data);
-                this.setState({
-                    ourContextData: res.data
-                })
+                axios.thirdPartyMemberAPI.getMemberAccounts("accounts", res.data.token)
+                    .then(res => {
+                            console.log(res.data);
+                            this.setState({
+                                ourContextData: res.data
+                            })
+                        }
+                    );
             });
     }
 
