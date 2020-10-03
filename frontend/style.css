@@ -1,4 +1,159 @@
 
+/* Overrides */
+
+* {
+    box-sizing: border-box;
+    line-height: 1em;
+    color: white;
+    font-family: Helvetica;
+    text-shadow: 0 0 5px rgba(255,255,255,0.25); /* Very slight glow */
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    font-size: 2vh;
+}
+
+body {
+    margin: 0px;
+    width: 100%;
+    height: calc( 100vh - 3.5rem );
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
 h1 {
     text-align: center;
+}
+
+/* Elements */
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 3.5rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+
+nav a {
+    height: 3.5rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+
+    background: linear-gradient(
+        30deg,
+        rgba(2,0,36,1) 0%,
+        rgba(2,53,91,1) 29%,
+        rgba(1,109,149,1) 64%,
+        rgba(0,212,255,1) 100%
+    );
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Splash screen */
+
+.splash {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 30vh;
+    z-index: 100;
+    background-color: white;
+    transition: opacity 0.5s ease;
+}
+.splash.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.splash h1, .splash h2 {
+    margin: 2% 0;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+
+    background: linear-gradient(
+        30deg,
+        rgba(2,0,36,1) 0%,
+        rgba(2,53,91,1) 29%,
+        rgba(1,109,149,1) 64%,
+        rgba(0,212,255,1) 100%
+    );
+}
+.splash h2 {
+    font-size: 2rem;
+}
+
+/* Tabs/Transitions */
+
+#dashboardtab, #supporttab, #breakdowntab {
+    width: 0%;
+    height: 100%;
+    transition: width 0.5s ease;
+    overflow: hidden;
+}
+
+.dashboard #dashboardtab, .support #supporttab, .breakdown #breakdowntab {
+    width: 100%;
+}
+
+/* Tab content */
+
+#dashboard, #breakdown, #support {
+    width: 100vw;
+    height: 100%;
+}
+
+/* Dashboard */
+
+#dashboard canvas {
+    width: 100%;
+    height: 40%;
+    background: transparent;
+}
+
+#dashboard .info {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Insights */
+
+#dashboard .insight {
+    width: 100%;
+    height: 3rem;
+    color: white;
+    border-top: 1px solid rgba(255,255,255,1);
+    padding: 0.9rem;
+    font-size: 1.2rem;
+    font-family: Helvetica;
+}
+
+#dashboard .insight.header {
+    text-align: center;
+}
+
+/* Gradient */
+
+.gradient {
+    background: linear-gradient(
+        30deg,
+        rgba(2,0,36,1) 0%,
+        rgba(2,53,91,1) 29%,
+        rgba(1,109,149,1) 64%,
+        rgba(0,212,255,1) 100%
+    );
+    background-attachment: fixed;
 }
