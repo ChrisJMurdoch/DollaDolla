@@ -1,7 +1,6 @@
 package third_party
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
 	"io"
@@ -59,7 +58,7 @@ func (thirdP *IThirdParty) makeExternalAPICall(endPoint string, method string, t
 	log.Println(thirdP.Method)
 	log.Printf("Status: %d", res.StatusCode)
 	log.Printf("Body: %s\n", data)
-	
+
 	return string(data), nil
 
 }
@@ -100,7 +99,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 			sendBadError(w)
 		}
 
-		_ = json.NewEncoder(w).Encode(response)
+		_, _ = w.Write([]byte(response))
 	} else {
 		_, _ = externalAPI.makeExternalAPICall("/logout", r.Method, r.URL.Query().Get("token"))
 		w.WriteHeader(http.StatusOK)
@@ -121,7 +120,7 @@ func memberHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.WriteHeader(http.StatusOK)
-	_ = json.NewEncoder(w).Encode(response)
+	_, _ = w.Write([]byte(response))
 
 }
 
