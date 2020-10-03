@@ -33,9 +33,5 @@ const HAL = new AI(
 // Expose AI to console
 window.HAL = HAL;
 
-// Demo queries
-/*console.log( HAL.ask("What is your name?") );
-console.log( HAL.ask("What is my balance?") );
-console.log( HAL.ask("How close to my goal am I?") );
-console.log( HAL.ask("How much have I spent on Netflix this month?") );
-console.log( HAL.ask("Open the Pod bay doors, please, HAL.") );*/
+// Example query
+// console.log( HAL.ask("What is my balance?") );
