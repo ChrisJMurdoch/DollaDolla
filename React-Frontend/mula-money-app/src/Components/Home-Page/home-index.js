@@ -11,9 +11,9 @@ import React, {Component} from "react";
 class HomeIndex extends Component {
     render() {
         return (
-            <React.Fragment>
+            <div>
                 Home
-            </React.Fragment>
+            </div>
         )
     }
 }

@@ -8,9 +8,9 @@ import React, {Component} from "react";
 class AccountBreakdownIndex extends Component {
     render() {
         return (
-            <React.Fragment>
+            <div>
                 Account
-            </React.Fragment>
+            </div>
         )
     }
 }

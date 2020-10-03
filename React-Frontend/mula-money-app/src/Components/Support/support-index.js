@@ -8,9 +8,9 @@ import React, {Component} from "react";
 class SupportIndex extends Component {
     render() {
         return (
-            <React.Fragment>
+            <div>
                 Support
-            </React.Fragment>
+            </div>
         )
     }
 }
