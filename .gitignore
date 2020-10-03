@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# We should be building our own node modules to avoid headaches
+mula-money-app/node_modules
