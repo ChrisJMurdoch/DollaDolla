@@ -65,8 +65,8 @@ class Header extends Component {
                     <Tabs
                         value={this.state.activeTab}
                         onChange={this.handleChange}
-                        indicatorColor="primary"
-                        textColor="primary"
+                        indicatorColor="secondary"
+                        textColor="secondary"
                         centered
                     >
                         <Tab label="Home" component={Link} to="/home" index={0}/>

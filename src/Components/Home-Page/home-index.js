@@ -1,5 +1,10 @@
 import React, {Component} from "react";
 import axios, {LOCAL_SESSION_TOKEN} from "../../Axios";
+import HorizontalLabelPositionBelowStepper from "./stepper";
+import Fade from "@material-ui/core/Fade";
+import Paper from "@material-ui/core/Paper";
+import Line from "./line";
+import ButtonBases from "./budget";
 
 /* Someone working from the home page can work from here
 *
@@ -13,7 +18,8 @@ import axios, {LOCAL_SESSION_TOKEN} from "../../Axios";
 class HomeIndex extends Component {
 
     state = {
-        ourContextData: {}
+        ourContextData: {},
+        intialisedProfile: true
     };
 
     componentDidMount() {
@@ -33,17 +39,34 @@ class HomeIndex extends Component {
                     .then(res => {
                             console.log(res.data);
                             this.setState({
-                                ourContextData: res.data
+                                ourContextData: res.data,
+                                intialisedProfile: true
                             })
                         }
                     );
             });
     }
 
+    handleChangeState = (setValue) => {
+        console.log(setValue);
+      this.setState({
+          intialisedProfile: setValue
+      })
+    };
+
     render() {
         return (
             <div>
-                Home
+                {/*<React.Fragment>*/}
+                {/*    <HorizontalLabelPositionBelowStepper showGraph={this.state.intialisedProfile} handleChange={this.handleChangeState} />*/}
+                {/*</React.Fragment>*/}
+                <div>
+                    <Line/>
+                </div>
+
+                <div style={{paddingTop: '3%'}}>
+                    <ButtonBases/>
+                </div>
             </div>
         )
     }

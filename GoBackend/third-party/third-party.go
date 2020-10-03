@@ -3,6 +3,7 @@ package third_party
 import (
 	"errors"
 	"fmt"
+	_ "github.com/ChrisJMurdoch/Mula/model"
 	"github.com/gorilla/mux"
 	"io"
 	"io/ioutil"

@@ -27,6 +27,8 @@ func main() {
 */
 	/* ******************************************************************************** */
 
+	log.Println("GO API Running!")
+
 	// We'll have a separate prefixed end point for everything we've been given in the hackathon collection
 	thirdPartyApp := mux.NewRouter()
 
