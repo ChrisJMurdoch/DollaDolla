@@ -35,7 +35,7 @@ export default class AI {
         return this.intents.default();
     }
 
-    // Map intents to replies
+    // Map intents to replies - No priority order
     intents = {
         greet               : () => "Hello!",
         leave               : () => "Goodbye!",
@@ -55,19 +55,27 @@ export default class AI {
 
     // Map keywords to intents - Priority: High -> Low
     keywords = [
+
+        // Specific spendings - High priority
+        { aliases: [ "netflix" ],                     intent: this.intents.ask_netflix_balance },
+        { aliases: [ "amazon" ],                      intent: this.intents.ask_amazon_balance },
+        { aliases: [ "tesco" ],                       intent: this.intents.ask_tesco_balance },
+
+        // Questions
+        { aliases: [ "spent", "used" ],               intent: this.intents.ask_spent },
+        { aliases: [ "balance", "have", "money" ],    intent: this.intents.ask_balance },
+        { aliases: [ "goal", "left", "target" ],      intent: this.intents.ask_goal },
+
+        // Commands
+        { aliases: [ "coupon", "discount", "help" ],  intent: this.intents.get_coupon },
+
+        // Informal - Low priority
         { aliases: [ "hi ", "hello", "hey", "hiya" ], intent: this.intents.greet },
-        { aliases: [ "bye", "goodbye" ],             intent: this.intents.leave },
-        { aliases: [ "thanks", "thank you" ],        intent: this.intents.thank },
-        { aliases: [ "doing" ],               intent: this.intents.check_in },
-        { aliases: [ "name", "call" ],               intent: this.intents.ask_name },
-        { aliases: [ "coupon", "discount", "help" ], intent: this.intents.get_coupon },
-        { aliases: [ "goal", "left", "target" ],     intent: this.intents.ask_goal },
-        { aliases: [ "netflix" ],                    intent: this.intents.ask_netflix_balance },
-        { aliases: [ "amazon" ],                     intent: this.intents.ask_amazon_balance },
-        { aliases: [ "tesco" ],                      intent: this.intents.ask_tesco_balance },
-        { aliases: [ "spent", "used" ],              intent: this.intents.ask_spent },
-        { aliases: [ "balance", "have", "money" ],   intent: this.intents.ask_balance },
-        { aliases: [ "open the", "pod bay doors" ],  intent: this.intents.ask_open },
+        { aliases: [ "bye", "goodbye" ],              intent: this.intents.leave },
+        { aliases: [ "thanks", "thank you" ],         intent: this.intents.thank },
+        { aliases: [ "open the", "pod bay doors" ],   intent: this.intents.ask_open },
+        { aliases: [ "name", "call" ],                intent: this.intents.ask_name },
+        { aliases: [ "you", "doing" ],                intent: this.intents.check_in },
     ];
 
 };
