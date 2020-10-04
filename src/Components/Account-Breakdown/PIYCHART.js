@@ -15,7 +15,7 @@ export const areas = [{
     area: 958
 }, {
     buckets: 'Food/Groceries',
-    area: 479
+    area: 169
 }, {
     buckets: 'Transportation',
     area: 148
@@ -47,7 +47,7 @@ class PIYCHART extends React.Component {
                         id="pie"
                         dataSource={areas}
                         palette="Bright"
-                        title="Your Spending Patterns (£)"
+                        title="Here's what you've spent this month:"
                         onPointClick={this.pointClickHandler}
                         onLegendClick={this.legendClickHandler}
                     >

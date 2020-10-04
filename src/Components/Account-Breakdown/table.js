@@ -38,11 +38,11 @@ function createData(name, calories) {
 }
 
 const rows = [
-    createData('Netflix', 9.99, ),
-    createData('Water', 33, ),
-    createData('Gas', 33, ),
-    createData('BT Wifi + Sport', 33, ),
-    createData('Total', 109, ),
+    createData('Tesco', "£104", ),
+    createData('Scotmid', "£32", ),
+    createData('Deliveroo', "£21", ),
+    createData("Starbucks", "£12", ),
+    createData('Total', "£169", ),
 ];
 
 export default function BasicTable() {
@@ -53,8 +53,8 @@ export default function BasicTable() {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell>Utilities + Wifi Breakdown</StyledTableCell>
-                        <StyledTableCell align="right">Transfers (£)</StyledTableCell>
+                        <StyledTableCell>Groceries breakdown:</StyledTableCell>
+                        <StyledTableCell align="right">Spent</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
