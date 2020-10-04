@@ -37,38 +37,39 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const energySources = [{value: "amountSaved", name: "Expected Monthly Savings"}];
+const energySources = [{value: "amountSaved", name: "Balance"}, {value: "amountProjected", name: "Savings projection"}];
 
 
 let countriesInfo = [
     {
         month: "Jan",
         amountSaved: 314,
-
+        amountProjected: 0,
     },
     {
         month: "Feb",
         amountSaved: 187,
-
+        amountProjected: 70,
     },
     {
         month: "Mar",
         amountSaved: 194,
-
+        amountProjected: 140,
     },
     {
         month: "Apr",
         amountSaved: 169,
-
+        amountProjected: 210,
     },
     {
         month: "May",
         amountSaved: 222,
-
+        amountProjected: 280,
     },
     {
         month: "June",
         amountSaved: 312,
+        amountProjected: 350,
     }
 ];
 
@@ -115,7 +116,7 @@ class LayoutTextFields3 extends React.Component {
                             itemTextPosition="bottom"
                         />
                         <Title text={`${this.props.profile.name}'s Dashboard`}>
-                            <Subtitle text="(This is where we can tell you about your goals)"/>
+                            <Subtitle text="Here's your current balance:"/>
                         </Title>
                         <Tooltip enabled={true}/>
                     </Chart>

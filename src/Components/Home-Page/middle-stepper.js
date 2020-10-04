@@ -45,39 +45,10 @@ export default function LayoutTextFields2(props) {
                 <div className={classes.root}>
                     <div style={{paddingTop: '3%'}}>
                         <div style={{paddingBottom: '5%',}}>
-                            <TextField className={classes.textField} label="Monthly Income(£)" type="number"
-                                       id="startingCash" placeholder="7000" color="secondary"
-                                       onChange={handleChange}/>
-
                             <TextField
-                                id="targetDate"
-                                label="Target Date"
-                                type="date"
-                                defaultValue="2017-05-24"
-                                className={classes.textField}
-                                onChange={handleChange}
-                                color="secondary"
-                                fullWidth
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
-                            <TextField
-                                id="targetAmount"
-                                label="Target Amount"
-                                type="number"
-                                placeholder="£1000"
-                                color="secondary"
-                                fullWidth
-                                className={classes.textField}
-                                onChange={handleChange}
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
-                            <TextField
+                            style={{marginBottom: '5%', marginTop: '5%'}}
                                 id="moneyToSplash"
-                                label="Your Goal From Saving"
+                                label="What's your spending goal?"
                                 placeholder="A Trip to France"
                                 onChange={handleChange}
                                 color="secondary"
@@ -87,6 +58,38 @@ export default function LayoutTextFields2(props) {
                                     shrink: true,
                                 }}
                             />
+                            <TextField
+                            style={{marginBottom: '5%', marginTop: '5%'}}
+                                id="targetAmount"
+                                label="How much will it cost? (£)"
+                                type="number"
+                                placeholder="350"
+                                color="secondary"
+                                fullWidth
+                                className={classes.textField}
+                                onChange={handleChange}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <TextField
+                            style={{marginBottom: '5%', marginTop: '5%'}}
+                                id="targetDate"
+                                label="And when would you like to have it by?"
+                                type="date"
+                                defaultValue="2020-25-12"
+                                className={classes.textField}
+                                onChange={handleChange}
+                                color="secondary"
+                                fullWidth
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <TextField className={classes.textField} label="Finally, what's your monthly budget? (£)" type="number"
+                                       id="startingCash" placeholder="2000" color="secondary"
+                                       onChange={handleChange}/>
+
                         </div>
                     </div>
 

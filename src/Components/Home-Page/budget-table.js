@@ -38,9 +38,12 @@ function createData(name, calories, fat) {
 }
 
 const rows = [
-    createData('Food', 123.40, 26.60),
-    createData('Entertainment', 46, 4),
-    createData('Rent', 580, "-"),
+    createData('Jan', "£314", "-"),
+    createData('Feb', "£187", "-"),
+    createData('March', "£194", "-"),
+    createData('April', "£169", "£41"),
+    createData('May', "£222", "£58"),
+    createData('June', "£312", "£38"),
 ];
 
 export default function BudgetTable() {
@@ -51,9 +54,9 @@ export default function BudgetTable() {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell>Details</StyledTableCell>
-                        <StyledTableCell align="right">Amount Spent (£)</StyledTableCell>
-                        <StyledTableCell align="right">Budget Leftover (£)</StyledTableCell>
+                        <StyledTableCell>Month</StyledTableCell>
+                        <StyledTableCell align="right">Balance</StyledTableCell>
+                        <StyledTableCell align="right">Left to goal</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

@@ -43,50 +43,28 @@ export default function LayoutTextFields1(props) {
         <Slide direction="right" in={props.active === 0} mountOnEnter unmountOnExit>
             <form onSubmit={handleSubmit}>
                 <div className={classes.root}>
-                    <div style={{paddingTop: '3%'}}>
-                        <div style={{paddingBottom: '5%'}}>
-                            <TextField className={classes.textField} label="Address"
-                                       id="addr" placeholder="17 Buckington PL " color="secondary"
+                    <div style={{paddingTop: '3%', width:'100%'}}>
+                        <div style={{marginBottom: '5%', marginTop: '5%'}}>
+                            <TextField
+                            style={{marginBottom: '5%', marginTop: '5%'}}
+                                id="name"
+                                label="What's your name?"
+                                className={classes.textField}
+                                color="secondary"
+                                fullWidth
+                                placeholder="John Smith"
+                                onChange={handleChange}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <TextField
+                            style={{marginBottom: '5%', marginTop: '5%'}}
+                             className={classes.textField} label="Where do you live?"
+                                       id="addr" placeholder="Edinburgh " color="secondary"
                                        onChange={handleChange}                                InputLabelProps={{
                                 shrink: true,
                             }}/>
-                            <TextField
-                                id="name"
-                                label="Full Name"
-                                className={classes.textField}
-                                color="secondary"
-                                fullWidth
-                                placeholder="Aj Mcmillan"
-                                onChange={handleChange}
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
-                            <TextField
-                                id="age"
-                                label="Age"
-                                placeholder="21"
-                                color="secondary"
-                                type="number"
-                                fullWidth
-                                className={classes.textField}
-                                onChange={handleChange}
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
-                            <TextField
-                                id="degree"
-                                label="Degree"
-                                placeholder="Computer science"
-                                onChange={handleChange}
-                                className={classes.textField}
-                                color="secondary"
-                                fullWidth
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                            />
                         </div>
 
                     </div>
