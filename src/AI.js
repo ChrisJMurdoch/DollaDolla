@@ -1,4 +1,5 @@
 
+/** Simple Eliza-style chatbot */
 export default class AI {
 
     balance;
@@ -13,33 +14,68 @@ export default class AI {
 
     ask(input) {
 
-        // Ignore case
-        input = input.toLowerCase();
+        // Ignore case and add whitespace to end
+        input = input.toLowerCase() + " ";
 
-        // Name query
-        if (input.includes("name"))
-            return "My name is HAL.";
+        // Loop through keyword=>intent mappings
+        for (let set of this.keywords ) {
 
-        // Balance query
-        if (input.includes("balance"))
-            return "Your balance is: £" + this.balance + ".";
+            // Loop through keywords in set
+            for (let keyword of set.aliases) {
 
-        // Goal query
-        else if(input.includes("goal"))
-            return "You are £" + (this.goal-this.balance) + " from your goal.";
+                // Call intent if matched
+                if (input.includes(keyword)) {
+                    console.log(keyword);
+                    return set.intent();
+                }
+            }
+        }
 
-        // Spending
-        else if(input.includes("netflix"))
-            return "You have spent £" + this.spending["netflix"] + " on Netflix this month.";
-
-        // ...
-        else if(input.includes("open"))
-            return "I'm sorry Dave, I'm afraid I can't do that.";
-            
-        // Spending query | Netflix
-        else
-            return "I'm sorry, I don't understand.";
-
+        // Call default intent if no matches
+        return this.intents.default();
     }
+
+    // Map intents to replies - No priority order
+    intents = {
+        greet               : () => "Hello!",
+        leave               : () => "Goodbye!",
+        thank               : () => "No problem!",
+        check_in            : () => "I'm good, thank you!",
+        ask_name            : () => "My name is HAL.",
+        ask_balance         : () => "Your balance is: £" + this.balance + ".",
+        ask_spent           : () => "You have spent £" + ( this.spending.netflix + this.spending.amazon + this.spending.tesco ).toFixed(2) + " this month.",
+        ask_goal            : () => "You are £" + (this.goal-this.balance) + " from your goal.",
+        ask_netflix_balance : () => "You have spent £" + this.spending.netflix + " on Netflix this month.",
+        ask_amazon_balance  : () => "You have spent £" + this.spending.amazon + " on Amazon this month.",
+        ask_tesco_balance   : () => "You have spent £" + this.spending.tesco + " on Tesco this month.",
+        get_coupon          : () => "I've realised you shop at Disney a lot, use the discount code: 'MAGIC10' next time!",
+        ask_open            : () => "I'm sorry Dave, I'm afraid I can't do that.",
+        default             : () => "I'm sorry, I don't understand.",
+    };
+
+    // Map keywords to intents - Priority: High -> Low
+    keywords = [
+
+        // Specific spendings - High priority
+        { aliases: [ "netflix" ],                     intent: this.intents.ask_netflix_balance },
+        { aliases: [ "amazon" ],                      intent: this.intents.ask_amazon_balance },
+        { aliases: [ "tesco" ],                       intent: this.intents.ask_tesco_balance },
+
+        // Questions
+        { aliases: [ "spent", "used" ],               intent: this.intents.ask_spent },
+        { aliases: [ "balance", "have", "money" ],    intent: this.intents.ask_balance },
+        { aliases: [ "goal", "left", "target" ],      intent: this.intents.ask_goal },
+
+        // Commands
+        { aliases: [ "coupon", "discount", "help" ],  intent: this.intents.get_coupon },
+
+        // Informal - Low priority
+        { aliases: [ "hi ", "hello", "hey", "hiya" ], intent: this.intents.greet },
+        { aliases: [ "bye", "goodbye" ],              intent: this.intents.leave },
+        { aliases: [ "thanks", "thank you" ],         intent: this.intents.thank },
+        { aliases: [ "open the", "pod bay doors" ],   intent: this.intents.ask_open },
+        { aliases: [ "name", "call" ],                intent: this.intents.ask_name },
+        { aliases: [ "you", "doing" ],                intent: this.intents.check_in },
+    ];
 
 };
