@@ -70,8 +70,8 @@ class Header extends Component {
                         centered
                     >
                         <Tab label="Home" component={Link} to="/home" index={0}/>
-                        <Tab label="Accounts" component={Link} to="/accountbreakdown" index={1} />
-                        <Tab label="Support" component={Link} to="/support" index={2} />
+                        <Tab label="Account" component={Link} to="/accountbreakdown" index={1} />
+                        <Tab label="Assistant" component={Link} to="/support" index={2} />
                     </Tabs>
                 </Paper>
             </React.Fragment>

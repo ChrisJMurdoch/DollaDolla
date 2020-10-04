@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 // Model of profile
 
 
-export default function LayoutTextFields1(props) {
+export default function LayoutTextFields2(props) {
     const classes = useStyles();
     const [checked, setChecked] = React.useState(true);
 
@@ -40,34 +40,34 @@ export default function LayoutTextFields1(props) {
     };
 
     return (
-        <Slide direction="right" in={props.active === 0} mountOnEnter unmountOnExit>
+        <Slide direction="right" in={props.active === 1} mountOnEnter unmountOnExit>
             <form onSubmit={handleSubmit}>
                 <div className={classes.root}>
                     <div style={{paddingTop: '3%'}}>
-                        <div style={{paddingBottom: '5%'}}>
-                            <TextField className={classes.textField} label="Address"
-                                       id="addr" placeholder="17 Buckington PL " color="secondary"
-                                       onChange={handleChange}                                InputLabelProps={{
-                                shrink: true,
-                            }}/>
+                        <div style={{paddingBottom: '5%',}}>
+                            <TextField className={classes.textField} label="Monthly Income(£)" type="number"
+                                       id="startingCash" placeholder="7000" color="secondary"
+                                       onChange={handleChange}/>
+
                             <TextField
-                                id="name"
-                                label="Full Name"
+                                id="targetDate"
+                                label="Target Date"
+                                type="date"
+                                defaultValue="2017-05-24"
                                 className={classes.textField}
+                                onChange={handleChange}
                                 color="secondary"
                                 fullWidth
-                                placeholder="Aj Mcmillan"
-                                onChange={handleChange}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
                             />
                             <TextField
-                                id="age"
-                                label="Age"
-                                placeholder="21"
-                                color="secondary"
+                                id="targetAmount"
+                                label="Target Amount"
                                 type="number"
+                                placeholder="£1000"
+                                color="secondary"
                                 fullWidth
                                 className={classes.textField}
                                 onChange={handleChange}
@@ -76,20 +76,20 @@ export default function LayoutTextFields1(props) {
                                 }}
                             />
                             <TextField
-                                id="degree"
-                                label="Degree"
-                                placeholder="Computer science"
+                                id="moneyToSplash"
+                                label="Your Goal From Saving"
+                                placeholder="A Trip to France"
                                 onChange={handleChange}
-                                className={classes.textField}
                                 color="secondary"
+                                className={classes.textField}
                                 fullWidth
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
                             />
                         </div>
-
                     </div>
+
 
                 </div>
             </form>

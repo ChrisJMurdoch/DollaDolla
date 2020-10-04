@@ -1,10 +1,8 @@
 import React, {Component} from "react";
 import axios, {LOCAL_SESSION_TOKEN} from "../../Axios";
-import HorizontalLabelPositionBelowStepper from "./stepper";
-import Fade from "@material-ui/core/Fade";
-import Paper from "@material-ui/core/Paper";
-import Line from "./line";
+import LayoutTextFields3 from "./line";
 import ButtonBases from "./budget";
+import CustomizedSteppers from "./new-stepper";
 
 /* Someone working from the home page can work from here
 *
@@ -19,7 +17,7 @@ class HomeIndex extends Component {
 
     state = {
         ourContextData: {},
-        intialisedProfile: true
+        profile: null
     };
 
     componentDidMount() {
@@ -40,35 +38,47 @@ class HomeIndex extends Component {
                             console.log(res.data);
                             this.setState({
                                 ourContextData: res.data,
-                                intialisedProfile: true
                             })
                         }
                     );
             });
     }
 
-    handleChangeState = (setValue) => {
-        console.log(setValue);
-      this.setState({
-          intialisedProfile: setValue
-      })
+    handleChangeState = (profile) => {
+        return this.setState({
+            profile
+        });
     };
 
     render() {
-        return (
-            <div>
-                {/*<React.Fragment>*/}
-                {/*    <HorizontalLabelPositionBelowStepper showGraph={this.state.intialisedProfile} handleChange={this.handleChangeState} />*/}
-                {/*</React.Fragment>*/}
+        if (this.state.profile) {
+            return (
                 <div>
-                    <Line/>
+                    <div>
+                        <LayoutTextFields3 profile={this.state.profile} active={2}/>
+                    </div>
+                    <div style={{paddingTop: '3%'}}>
+                        <ButtonBases/>
+                    </div>
                 </div>
+            )
+        } else {
+            return (
+                <div>
+                    <div>
+                        <CustomizedSteppers finishedStepper={this.handleChangeState}/>
+                    </div>
+                    {/*<React.Fragment>*/}
+                    {/*    <HorizontalLabelPositionBelowStepper showGraph={this.state.intialisedProfile} handleChange={this.handleChangeState} />*/}
+                    {/*</React.Fragment>*/}
+                    {/*<div>*/}
+                    {/*    <Line/>*/}
+                    {/*</div>*/}
 
-                <div style={{paddingTop: '3%'}}>
-                    <ButtonBases/>
+
                 </div>
-            </div>
-        )
+            )
+        }
     }
 }
 
