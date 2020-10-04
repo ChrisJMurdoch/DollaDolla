@@ -14,17 +14,13 @@ const images = [
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
-        minWidth: 200,
+        flexWrap: 'wrap',
+        minWidth: 300,
         width: '100%',
     },
-    // paper: {
-    //     height: '50vh',
-    //     width: 100,
-    //     backgroundColor:
-    // },
     image: {
         position: 'relative',
-        height: 125,
+        height: 200,
         [theme.breakpoints.down('xs')]: {
             width: '100% !important', // Overrides inline-style
             height: 100,
@@ -38,7 +34,7 @@ const useStyles = makeStyles(theme => ({
                 opacity: 0,
             },
             '& $imageTitle': {
-                // border: '4px solid currentColor', Almost impossible to ratio on small screens -- Revisit
+                // border: '4px solid currentColor',
             },
         },
     },
@@ -52,7 +48,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: theme.palette.common.white,
+        color: theme.palette.common.black,
     },
     imageSrc: {
         position: 'absolute',
@@ -75,23 +71,17 @@ const useStyles = makeStyles(theme => ({
     },
     imageTitle: {
         // position: 'relative',
-        // padding: '2%',
+        // padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
     },
     imageMarked: {
         // height: 3,
         // width: 18,
-        // backgroundColor: theme.palette.common.white,
+        // backgroundColor: theme.palette.common.black,
         // position: 'absolute',
         // bottom: -2,
         // left: 'calc(50% - 9px)',
         // transition: theme.transitions.create('opacity'),
     },
-    itemDivisor: {
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gridGap: '20px'
-
-    }
 }));
 
 export default function ButtonBases() {

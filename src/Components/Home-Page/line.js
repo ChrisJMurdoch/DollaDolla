@@ -43,32 +43,32 @@ const energySources = [{value: "amountSaved", name: "Expected Monthly Savings"}]
 let countriesInfo = [
     {
         month: "Jan",
-        amountSaved: 100,
+        amountSaved: 314,
 
     },
     {
         month: "Feb",
-        amountSaved: 100,
+        amountSaved: 187,
 
     },
     {
         month: "Mar",
-        amountSaved: 100,
+        amountSaved: 194,
 
     },
     {
         month: "Apr",
-        amountSaved: 100,
+        amountSaved: 169,
 
     },
     {
         month: "May",
-        amountSaved: 100,
+        amountSaved: 222,
 
     },
     {
         month: "June",
-        amountSaved: 100,
+        amountSaved: 312,
     }
 ];
 
@@ -80,7 +80,9 @@ class LayoutTextFields3 extends React.Component {
             type: 'line'
         };
         this.handleChange = this.handleChange.bind(this);
-        console.log(this.props);
+
+
+
     }
 
     render() {

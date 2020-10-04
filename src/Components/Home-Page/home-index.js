@@ -3,6 +3,7 @@ import axios, {LOCAL_SESSION_TOKEN} from "../../Axios";
 import LayoutTextFields3 from "./line";
 import ButtonBases from "./budget";
 import CustomizedSteppers from "./new-stepper";
+import BudgetTable from "./budget-table";
 
 /* Someone working from the home page can work from here
 *
@@ -19,6 +20,10 @@ class HomeIndex extends Component {
         ourContextData: {},
         profile: null
     };
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(prevProps, prevState, snapshot);
+    }
 
     componentDidMount() {
 
@@ -58,7 +63,7 @@ class HomeIndex extends Component {
                         <LayoutTextFields3 profile={this.state.profile} active={2}/>
                     </div>
                     <div style={{paddingTop: '3%'}}>
-                        <ButtonBases/>
+                        <BudgetTable/>
                     </div>
                 </div>
             )

@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import {Link} from "react-router-dom";
 import Tab from "@material-ui/core/Tab";
 import axios from "../../Axios";
+import Badge from "@material-ui/core/Badge";
 
 
 
@@ -70,7 +71,9 @@ class Header extends Component {
                         centered
                     >
                         <Tab label="Home" component={Link} to="/home" index={0}/>
-                        <Tab label="Account" component={Link} to="/accountbreakdown" index={1} />
+                        <Tab label={<Badge badgeContent={2} color="secondary">
+                            Account
+                        </Badge>} component={Link} to="/accountbreakdown" index={1} />
                         <Tab label="Assistant" component={Link} to="/support" index={2} />
                     </Tabs>
                 </Paper>

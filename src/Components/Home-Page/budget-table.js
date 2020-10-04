@@ -33,19 +33,17 @@ const StyledTableRow = withStyles((theme) => ({
     },
 }))(TableRow);
 
-function createData(name, calories) {
-    return { name, calories };
+function createData(name, calories, fat) {
+    return { name, calories, fat };
 }
 
 const rows = [
-    createData('Netflix', 9.99, ),
-    createData('Water', 33, ),
-    createData('Gas', 33, ),
-    createData('BT Wifi + Sport', 33, ),
-    createData('Total', 109, ),
+    createData('Food', 123.40, 26.60),
+    createData('Entertainment', 46, 4),
+    createData('Rent', 580, "-"),
 ];
 
-export default function BasicTable() {
+export default function BudgetTable() {
     const classes = useStyles();
 
     return (
@@ -53,8 +51,9 @@ export default function BasicTable() {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell>Utilities + Wifi Breakdown</StyledTableCell>
-                        <StyledTableCell align="right">Transfers (£)</StyledTableCell>
+                        <StyledTableCell>Details</StyledTableCell>
+                        <StyledTableCell align="right">Amount Spent (£)</StyledTableCell>
+                        <StyledTableCell align="right">Budget Leftover (£)</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -64,6 +63,7 @@ export default function BasicTable() {
                                 {row.name}
                             </StyledTableCell>
                             <StyledTableCell align="right">{row.calories}</StyledTableCell>
+                            <StyledTableCell align="right">{row.fat}</StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>
